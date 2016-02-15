@@ -1,0 +1,24 @@
+{
+    "name": "mablae/datetimepicker-bundle",
+    "version": "0.1.0",
+    "description": "Symfony bundle for Bootstrap3 DateTime picker",
+    "keywords": ["symfony", "bootstrap", "bundle", "picker", "datepicker", "timepicker"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Malte Blättermann"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "symfony/framework-bundle": "2.*",
+        "symfony/symfony": "2.*"
+    },
+    "autoload":     {
+        "psr-0": {
+            "Mablae\\DatetimepickerBundle": ""
+        }
+    },
+    "target-dir": "Mablae/DatetimepickerBundle"
+}
