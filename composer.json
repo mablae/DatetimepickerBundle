@@ -1,6 +1,6 @@
 {
   "name": "mablae/datetimepicker-bundle",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Symfony bundle for Bootstrap3 DateTime picker",
   "keywords": [
     "symfony",

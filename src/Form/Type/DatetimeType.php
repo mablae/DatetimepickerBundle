@@ -3,11 +3,11 @@
 namespace Mablae\DatetimepickerBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType as BaseDateType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Symfony\Component\Form\Extension\Core\Type\DateType as BaseDateType;
 
 /**
 * DatetimeType
@@ -61,10 +61,6 @@ class DatetimeType extends AbstractType
         if(!isset($pickerOptions['format']))
             $pickerOptions['format'] = 'mm/dd/yyyy HH:ii';
 
-        if ($pickerOptions['formatter'] == 'php'){
-            $pickerOptions['format'] = DatetimeType::convertIntlFormaterToMalot( $pickerOptions['format'] );
-        }
-
         $view->vars = array_replace($view->vars, array(
             'pickerOptions' => $pickerOptions,
         ));
@@ -82,20 +78,13 @@ class DatetimeType extends AbstractType
                 'widget' => 'single_text',
                 'format' => function (Options $options, $value) use ($configs) {
                     $pickerOptions = array_merge($configs, $options['pickerOptions']);
-
-                    if ($pickerOptions['formatter'] == 'php'){
-                        if (isset($pickerOptions['format'])){
-                            return $pickerOptions['format'];
-                        } else {
-                            return 'mm/dd/yyyy HH:ii';
-                        }
-                    } elseif ($pickerOptions['formatter'] == 'js'){
-                        if (isset($pickerOptions['format'])){
-                            return DatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
-                        } else {
-                            return DatetimeType::convertMalotToIntlFormater( 'mm/dd/yyyy HH:ii' );
-                        }
+                    if (isset($pickerOptions['format'])) {
+                        return $pickerOptions['format'];
+                    } else {
+                        return 'mm/dd/yyyy HH:ii';
                     }
+
+
                 },
                 'pickerOptions' => array(),
             ));
