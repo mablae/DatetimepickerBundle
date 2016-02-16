@@ -52,10 +52,10 @@ class DatetimeType extends AbstractType
         $pickerOptions = array_merge($this->options, $options['pickerOptions']);
 
         //Set automatically the language
-        if(!isset($pickerOptions['language']))
-            $pickerOptions['language'] = \Locale::getDefault();
-        if($pickerOptions['language'] == 'en')
-            unset($pickerOptions['language']);
+        if(!isset($pickerOptions['locale']))
+            $pickerOptions['locale'] = \Locale::getDefault();
+        if($pickerOptions['locale'] == 'en')
+            unset($pickerOptions['locale']);
 
         //Set the defaut format of malot.fr/bootstrap-datetimepicker
         if(!isset($pickerOptions['format']))
