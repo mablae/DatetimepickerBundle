@@ -58,7 +58,7 @@ class DatetimeType extends AbstractType
             unset($pickerOptions['language']);
 
         if(!isset($pickerOptions['format']))
-            $pickerOptions['format'] = 'DD. MMMM YYYY';
+            $pickerOptions['format'] = 'DD.MM.YYYY';
 
         $view->vars = array_replace($view->vars, array(
             'pickerOptions' => $pickerOptions,
@@ -81,7 +81,7 @@ class DatetimeType extends AbstractType
                     if (isset($pickerOptions['format'])){
                         return DatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
                     } else {
-                        return DatetimeType::convertMalotToIntlFormater( 'DD. MMMM YYYY' );
+                        return DatetimeType::convertMalotToIntlFormater( 'DD.MM.YYYY' );
                     }
 
                 },
