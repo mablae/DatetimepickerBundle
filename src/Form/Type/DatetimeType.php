@@ -25,13 +25,13 @@ class DatetimeType extends AbstractType
      *
      * @var array
      */
-    private static $momentFormatter = array("YYYY", "MM", "DD" );
+    private static $momentFormatter = array("YY", "YYYY", "MM", "D", "DD", 'MMMM' );
 
     /**
      *
      * @var array
      */
-    private static $intlFormater    = array("yyyy",  "MM",  "dd");
+    private static $intlFormater    = array("yy", "yyyy",  "MM", "d", "dd", 'MMMM' );
 
     /**
      * Constructs
@@ -58,7 +58,7 @@ class DatetimeType extends AbstractType
             unset($pickerOptions['language']);
 
         if(!isset($pickerOptions['format']))
-            $pickerOptions['format'] = 'DD.MM.YYYY';
+            $pickerOptions['format'] = 'DD. MMMM YYYY';
 
         $view->vars = array_replace($view->vars, array(
             'pickerOptions' => $pickerOptions,
@@ -81,7 +81,7 @@ class DatetimeType extends AbstractType
                     if (isset($pickerOptions['format'])){
                         return DatetimeType::convertMalotToIntlFormater( $pickerOptions['format'] );
                     } else {
-                        return DatetimeType::convertMalotToIntlFormater( 'DD.MM.YYYY' );
+                        return DatetimeType::convertMalotToIntlFormater( 'DD. MMMM YYYY' );
                     }
 
                 },
