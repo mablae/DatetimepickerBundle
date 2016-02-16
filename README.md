@@ -1,8 +1,6 @@
 #DatetimepickerBundle
 
-This bundle implements the [Bootstrap DateTime Picker](http://eonasdan.github.io/bootstrap-datetimepicker/Installing/#bower-) in a Form Type for Symfony 2.*. The bundle structure is inspired by GenemuFormBundle.
-
-Demo : http://www.malot.fr/bootstrap-datetimepicker/demo.php
+This bundle implements the [Bootstrap DateTime Picker v4](http://eonasdan.github.io/bootstrap-datetimepicker/Installing/#bower-) in a Form Type for Symfony 2.*. The bundle structure is inspired by GenemuFormBundle.
 
 Please feel free to contribute, to fork, to send merge request and to create ticket.
 
@@ -24,7 +22,7 @@ public function registerBundles()
 {
     $bundles = array(
         // ...
-        new Mablae\DatetimepickerBundle\SCDatetimepickerBundle(),
+        new Mablae\DatetimepickerBundle\MablaeDatetimepickerBundle(),
     );
 }
 ```
@@ -35,10 +33,12 @@ mablae_datetimepicker:
     picker: ~
 ```
 
-### Step 3: Initialize assets
+### Step 3: Install moment.js and Bootstrap3 Datepicker
 
-``` bash
-$ php app/console assets:install web/
+This bundle does not handle an asset minification or loading. Just use gulp or webpack. 
+
+```
+http://eonasdan.github.io/bootstrap-datetimepicker/Installing/
 ```
 
 ## Usages
@@ -50,31 +50,25 @@ public function buildForm(FormBuilder $builder, array $options)
 {
     $builder
         // defaut options
-        ->add('createdAt', 'collot_datetime') 
+        ->add('createdAt', 'mablae_datetime') 
         
         // full options
-        ->add('updatedAt', 'collot_datetime', array( 'pickerOptions' =>
+        ->add('updatedAt', 'mablae_datetime', array( 'pickerOptions' =>
             array('format' => 'mm/dd/yyyy',
-                'weekStart' => 0,
-                'startDate' => date('m/d/Y'), //example
-                'endDate' => '01/01/3000', //example
-                'daysOfWeekDisabled' => '0,6', //example
-                'autoclose' => false,
-                'startView' => 'month',
-                'minView' => 'hour',
-                'maxView' => 'decade',
-                'todayBtn' => false,
-                'todayHighlight' => false,
-                'keyboardNavigation' => true,
-                'language' => 'en',
-                'forceParse' => true,
-                'minuteStep' => 5,
-                'pickerReferer ' => 'default', //deprecated
-                'pickerPosition' => 'bottom-right',
-                'viewSelect' => 'hour',
-                'showMeridian' => false,
-                'initialDate' => date('m/d/Y', 1577836800), //example
-                ))) ; 
-
+                'viewMode' => 'days', // days, month, years, decades
+                                     
+                ))); 
+                
 }
+```
+
+
+Include the javascript needed to initialize the widget: 
+
+``` jinja2
+
+...
+{{ form_javascript(your.form.field) }}
+...
+
 ```
