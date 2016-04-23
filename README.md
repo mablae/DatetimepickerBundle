@@ -1,5 +1,7 @@
 #DatetimepickerBundle
 
+[![Packagist](https://img.shields.io/packagist/v/mablae/datetimepicker-bundle.svg)]()
+
 This bundle implements the [Bootstrap DateTime Picker v4](http://eonasdan.github.io/bootstrap-datetimepicker/Installing/#bower-) in a Form Type for Symfony 2.*. The bundle structure is inspired by GenemuFormBundle.
 
 Please feel free to contribute, to fork, to send merge request and to create ticket.
