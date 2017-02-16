@@ -48,14 +48,16 @@ http://eonasdan.github.io/bootstrap-datetimepicker/Installing/
 ``` php
 <?php
 // ...
+use Mablae\DatetimepickerBundle\Form\Type\DateTimeType;
+
 public function buildForm(FormBuilder $builder, array $options)
 {
     $builder
         // defaut options
-        ->add('createdAt', 'mablae_datetime') 
+        ->add('createdAt', DateTimeType::class) 
         
         // full options
-        ->add('updatedAt', 'mablae_datetime', array( 'pickerOptions' =>
+        ->add('updatedAt', DateTimeType::class, array( 'pickerOptions' =>
             array('format' => 'mm/dd/yyyy',
                 'viewMode' => 'days', // days, month, years, decades
                                      
