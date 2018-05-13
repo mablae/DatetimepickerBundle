@@ -1,4 +1,6 @@
-#DatetimepickerBundle
+# DatetimepickerBundle
+
+Warning: This is abadoned and incomplete! Uses at your own rik.
 
 [![Packagist](https://img.shields.io/packagist/v/mablae/datetimepicker-bundle.svg)]()
 
@@ -6,7 +8,7 @@ This bundle implements the [Bootstrap DateTime Picker v4](http://eonasdan.github
 
 Please feel free to contribute, to fork, to send merge request and to create ticket.
 
-##Installation
+## Installation
 
 ### Step 1: Install DatetimepickerBundle
 
